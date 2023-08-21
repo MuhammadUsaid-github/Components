@@ -44,7 +44,7 @@ function App() {
     <h1>SELECT COMPONENT:</h1>
       <Select
         options={[
-          {value:"Lahore",label:"Where do you live"},
+          {value:"Where do you live",label:"Where do you live"},
           { value: "Karachi", label: "Karachi" },
           { value: "Islamabad", label: "Islamabad" },
           { value: "Quetta", label: "Quetta" },
