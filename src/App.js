@@ -1,75 +1,52 @@
-import React, { useState } from "react";
-import Input from "./Input";
-import Button from "./Button";
-import Card from "./Card";
-import Select from "./Select";
-import Table from "./Table";
+import React from 'react';
+import Input from './Components/input';
+import SelectComponent from './Components/select drop down';
+import CustomButton from './Components/button';
+import CustomIconButton from './Components/iconButton';
+import DynamicTable from './Components/dynamic table';
+import CustomSwitch from './Components/switch';
+// import CustomDatePicker from './components/Datepicker';
+
+const options = [
+  { value: 'option1', label: 'LAHORE' },
+  { value: 'option2', label: 'SHERSHAH' },
+  // Add more options as needed
+];
+
+const columns = [
+  { id: 'name', label: 'Name' },
+  { id: 'age', label: 'Age' },
+  // Add more columns as needed
+];
+
+const data = [
+  { id: 1, name: 'Ahmed', age: 30 },
+  { id: 2, name: 'Usaid', age: 25 },
+  // Add more data rows as needed
+];
 
 function App() {
-  const [inputValue, setInputValue] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
-  
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleButtonClick = () => {
-    // Handle button click logic
-  };
-
-  const handleSelectChange = (e) => {
-    setSelectedOption(e.target.value);
-  };
-
-  const tableData = [
-    { name: "Ahmed", age: 19, location: "karachi" , institute:"SAIMS",address:"Tower near aga khan hospital,Karachi" },
-    { name: "Kifal", age: 18, location: "Lahore",institute:"BMJ", address:"Bahadurabad nera Tooso,Karachi" },
-    { name: "Usaid", age: 16, location: "Rawal-Pindi",institute:"KMA", address:"Husainabad nera Bombay koila karahi,Karachi" },
-    // Add more data
-  ];
-
   return (
     <div>
       
-    <h1 className="input1">INPUT COMPONENT:</h1>
-      <Input placeholder="Enter something" value={inputValue} onChange={handleInputChange} />
+      <h1>INPUT COMPONENT:</h1>
+      <Input  label="Input" />
       <br></br>
-      <br></br>
-      <br></br>
-    <h1>BUTTON COMPONENT:</h1>
-      <Button label="CLICK ME" onClick={handleButtonClick} />
-      <br></br>
-      <br></br>
-      <br></br>
+     
     <h1>SELECT COMPONENT:</h1>
-      <Select
-        options={[
-          {value:"Where do you live",label:"Where do you live"},
-          { value: "Karachi", label: "Karachi" },
-          { value: "Islamabad", label: "Islamabad" },
-          { value: "Quetta", label: "Quetta" },
-          { value: "Peshawar", label: "Peshawar" },
-          { value: "Rawal-Pindi", label: "Rawal-Pindi" },
-          {value:"Lahore",label:"Lahore"}
-
-          // Add more options
-        ]}
-        value={selectedOption}
-        onChange={handleSelectChange}
-      />
-      <br></br>
-      <br></br>
-      <br></br>
-      <h1>CARD COMPONENT:</h1>
-      <div className="div1">
-      <Card title="Card Title" content="Card Content" />
-      <Card title="Card Title" content="Card Content" />
-      <Card title="Card Title" content="Card Content" />
-      </div>
-      <br></br>
-      <br></br>
-        <h1>TABLE COMPONENT:</h1>
-      <Table data={tableData} />
+      <SelectComponent label="Select" options={options} />
+      
+    <h1>BUTTON COMPONENT:</h1>
+      <CustomButton variant="contained" color="primary">
+        Button
+      </CustomButton>
+      <CustomIconButton color="primary">
+        {/* Add your icon here */}
+      </CustomIconButton>
+      <h1>TABLE COMPONENT:</h1>
+      <DynamicTable data={data} columns={columns} />
+      <CustomSwitch />
+      {/* <CustomDatePicker label="Date Picker" /> */}
     </div>
   );
 }
